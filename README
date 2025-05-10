@@ -1,8 +1,9 @@
 OpenTyrianLinearMovement
 
-A quick, simple edit of OpenTyrian that removes the acceleration-based euroshop movement in favor of traditional linear binary movement. Works with keyboard and (non-analog) controllers, mouse movement is unchanged. Diagonal speed advantage was also removed with loose, "close enough" numbers.
+A quick, simple edit of OpenTyrian that removes the acceleration-based euroshmup movement in favor of traditional binary linear movement. Works with keyboard and (non-analog) controllers, mouse movement is unchanged. Diagonal speed advantage was also reduced with loose "close enough" numbers. Existing demo replay will obviously not work on this build since the movement code is changed.
 
-Demo replay will obviously not work on this build since the movement code is changed!
+If you want builds other than Windows you'll have to compile yourself, sorry!
+I'm new to github and forking culture so apologies if I'm missing any conventions here. I wasn't sure how to version something like this so I left it at the default v2.1.??? from the source code.
 
 ================================================================================
 
