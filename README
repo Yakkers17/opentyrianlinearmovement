@@ -1,4 +1,9 @@
-OpenTyrian
+OpenTyrianLinearMovement
+
+A quick, simple edit of OpenTyrian that removes the acceleration-based euroshop movement in favor of traditional linear binary movement. Works with keyboard and (non-analog) controllers, mouse movement is unchanged. Diagonal speed advantage was also removed with loose, "close enough" numbers.
+
+Demo replay will obviously not work on this build since the movement code is changed!
+
 ================================================================================
 
 OpenTyrian is an open-source port of the DOS game Tyrian.

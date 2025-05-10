@@ -3650,17 +3650,32 @@ redo:
 				}
 
 				/* keyboard input */
-				if ((inputDevice == 0 || inputDevice == 1) && !play_demo)
-				{
-					if (keysactive[keySettings[KEY_SETTING_UP]])
-						this_player->y -= CURRENT_KEY_SPEED;
-					if (keysactive[keySettings[KEY_SETTING_DOWN]])
-						this_player->y += CURRENT_KEY_SPEED;
+				if ((inputDevice == 0 || inputDevice == 1) && !play_demo) {
+					if (keysactive[keySettings[KEY_SETTING_UP]]) {
+						if (keysactive[keySettings[KEY_SETTING_LEFT]] || keysactive[keySettings[KEY_SETTING_RIGHT]])
+							this_player->y -= CURRENT_KEY_SPEED_DIAGONAL;
+						else
+							this_player->y -= CURRENT_KEY_SPEED;
+						}
+					else if (keysactive[keySettings[KEY_SETTING_DOWN]]) {
+						if (keysactive[keySettings[KEY_SETTING_LEFT]] || keysactive[keySettings[KEY_SETTING_RIGHT]])
+							this_player->y += CURRENT_KEY_SPEED_DIAGONAL;
+						else
+							this_player->y += CURRENT_KEY_SPEED;
+					}
 
-					if (keysactive[keySettings[KEY_SETTING_LEFT]])
-						this_player->x -= CURRENT_KEY_SPEED;
-					if (keysactive[keySettings[KEY_SETTING_RIGHT]])
-						this_player->x += CURRENT_KEY_SPEED;
+					if (keysactive[keySettings[KEY_SETTING_LEFT]]) {
+						if (keysactive[keySettings[KEY_SETTING_UP]] || keysactive[keySettings[KEY_SETTING_DOWN]])
+							this_player->x -= CURRENT_KEY_SPEED_DIAGONAL;
+						else
+							this_player->x -= CURRENT_KEY_SPEED;
+					}
+					else if (keysactive[keySettings[KEY_SETTING_RIGHT]]) {
+						if (keysactive[keySettings[KEY_SETTING_UP]] || keysactive[keySettings[KEY_SETTING_DOWN]])
+							this_player->x += CURRENT_KEY_SPEED_DIAGONAL;
+						else
+							this_player->x += CURRENT_KEY_SPEED;
+					}
 
 					button[0] = button[0] || keysactive[keySettings[KEY_SETTING_FIRE]];
 					button[3] = button[3] || keysactive[keySettings[KEY_SETTING_CHANGE_FIRE]];
@@ -3712,8 +3727,8 @@ redo:
 					mouseYC = -mouseYC;
 				}
 
-				accelXC += this_player->x - *mouseX_;
-				accelYC += this_player->y - *mouseY_;
+				//accelXC += this_player->x - *mouseX_;
+				//accelYC += this_player->y - *mouseY_;
 
 				if (mouseXC > 30)
 					mouseXC = 30;
